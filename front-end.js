@@ -7,8 +7,9 @@ async function getBalance(address) {
         }
         const balanceInSatoshis = await response.text();
         const balanceInBitcoins = balanceInSatoshis / 1e8;
-        return balanceInBitcoins;
+        document.getElementById('balance').textContent = `Balance: ${balanceInBitcoins} BTC`;
     } catch (error) {
         console.error(`There was an error fetching the balance: ${error.message}`);
+        document.getElementById('balance').textContent = `Error: ${error.message}`;
     }
 }
