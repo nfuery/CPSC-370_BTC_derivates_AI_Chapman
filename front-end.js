@@ -47,3 +47,35 @@ async function calculateValue() {
         document.getElementById('value').textContent = `Error: ${error.message}`;
     }
 }
+
+// Function to convert USD to Bitcoin
+async function convertUsdToBtc(usd) {
+    try {
+        const response = await fetch('https://api.coindesk.com/v1/bpi/currentprice/BTC.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        const price = data.bpi.USD.rate_float;
+        const btc = usd / price;
+        document.getElementById('conversion').textContent = `$${usd} is worth ${btc.toFixed(8)} BTC`;
+    } catch (error) {
+        console.error(`There was an error converting USD to BTC: ${error.message}`);
+        document.getElementById('conversion').textContent = `Error: ${error.message}`;
+    }
+}
+
+// Function to fetch historical Bitcoin price data and display it in the graph
+// Note: This is a placeholder function. The actual implementation will depend on the library used for the graph.
+async function displayGraph() {
+    try {
+        const response = await fetch('https://api.coindesk.com/v1/bpi/historical/close.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        // Code to display the data in the graph goes here
+    } catch (error) {
+        console.error(`There was an error fetching the historical data: ${error.message}`);
+    }
+}

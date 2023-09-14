@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: #f4f4f4;
+    text-align: center;
+    padding: 50px;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+#balance, #price, #value, #conversion {
+    margin-top: 20px;
+    font-size: 1.5em;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #333;
+    background-color: #f4f4f4;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ddd;
+}
+
+input[type="text"], input[type="range"] {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 1em;
+}
+
+#graph {
+    margin-top: 20px;
+    /* Additional styling for the graph goes here */
+}

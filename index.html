@@ -2,35 +2,7 @@
 <html>
 <head>
     <title>Bitcoin Balance</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 {
-            font-size: 2em;
-            color: #333;
-        }
-        #balance {
-            margin-top: 20px;
-            font-size: 1.5em;
-            color: #666;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 1em;
-            color: #fff;
-            background-color: #007BFF;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Bitcoin Tools</h1>
@@ -41,6 +13,9 @@
     <input type="text" id="amount" placeholder="Enter amount in BTC">
     <button onclick="calculateValue()">Calculate Value in USD</button>
     <p id="value"></p>
+    <input type="range" id="usdSlider" min="0" max="10000" value="0" oninput="convertUsdToBtc(this.value)">
+    <p id="conversion"></p>
+    <div id="graph"></div>
     <script src="front-end.js"></script>
 </body>
 </html>
