@@ -33,9 +33,14 @@
     </style>
 </head>
 <body>
-    <h1>Bitcoin Balance Checker</h1>
+    <h1>Bitcoin Tools</h1>
     <button onclick="getBalance('1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa')">Check Balance</button>
     <p id="balance"></p>
+    <button onclick="getPrice()">Check Latest Price</button>
+    <p id="price"></p>
+    <input type="text" id="amount" placeholder="Enter amount in BTC">
+    <button onclick="calculateValue()">Calculate Value in USD</button>
+    <p id="value"></p>
     <script src="front-end.js"></script>
 </body>
 </html>
