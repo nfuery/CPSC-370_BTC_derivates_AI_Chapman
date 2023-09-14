@@ -5,6 +5,19 @@ body {
     text-align: center;
     padding: 50px;
     font-size: 1em; /* Decrease the font size */
+    position: relative;
+}
+
+#author-info {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.8em;
+}
+
+#author-info a {
+    color: #f4f4f4;
+    text-decoration: none;
 }
 
 h1 {
