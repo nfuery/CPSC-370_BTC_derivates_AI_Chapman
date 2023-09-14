@@ -34,7 +34,7 @@ input[type="text"], input[type="range"] {
     margin-top: 20px;
     padding: 10px;
     font-size: 1em; /* Decrease the font size */
-    width: 80%; /* Increase the width */
+    width: 30%; /* Decrease the width */
 }
 
 #graph {
