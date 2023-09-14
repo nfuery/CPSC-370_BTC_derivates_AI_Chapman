@@ -1,5 +1,6 @@
 // Function to get balance of a Bitcoin address
-async function getBalance(address) {
+async function getBalance() {
+    const address = document.getElementById('address').value;
     try {
         const response = await fetch(`https://blockchain.info/q/addressbalance/${address}`);
         if (!response.ok) {
