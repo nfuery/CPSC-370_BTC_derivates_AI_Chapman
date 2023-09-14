@@ -4,21 +4,21 @@ body {
     color: #f4f4f4;
     text-align: center;
     padding: 50px;
-    font-size: 2em; /* Increase the font size */
+    font-size: 1em; /* Decrease the font size */
 }
 
 h1 {
-    font-size: 3em; /* Increase the font size */
+    font-size: 2em; /* Decrease the font size */
 }
 
 #balance, #price, #value, #conversion {
     margin-top: 20px;
-    font-size: 2em; /* Increase the font size */
+    font-size: 1em; /* Decrease the font size */
 }
 
 button {
     padding: 10px 20px;
-    font-size: 2em; /* Increase the font size */
+    font-size: 1em; /* Decrease the font size */
     color: #333;
     background-color: #f4f4f4;
     border: none;
@@ -33,7 +33,7 @@ button:hover {
 input[type="text"], input[type="range"] {
     margin-top: 20px;
     padding: 10px;
-    font-size: 2em; /* Increase the font size */
+    font-size: 1em; /* Decrease the font size */
     width: 80%; /* Increase the width */
 }
 
