@@ -65,17 +65,12 @@ async function convertUsdToBtc(usd) {
     }
 }
 
-// Function to fetch historical Bitcoin price data and display it in the graph
-// Note: This is a placeholder function. The actual implementation will depend on the library used for the graph.
-async function displayGraph() {
-    try {
-        const response = await fetch('https://api.coindesk.com/v1/bpi/historical/close.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        // Code to display the data in the graph goes here
-    } catch (error) {
-        console.error(`There was an error fetching the historical data: ${error.message}`);
+// Function to toggle the visibility of the image
+function toggleImage() {
+    const image = document.getElementById('graphImage');
+    if (image.style.display === 'none') {
+        image.style.display = 'block';
+    } else {
+        image.style.display = 'none';
     }
 }

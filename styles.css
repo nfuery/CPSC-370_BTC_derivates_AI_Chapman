@@ -37,7 +37,8 @@ input[type="text"], input[type="range"] {
     width: 30%; /* Decrease the width */
 }
 
-#graph {
+#graph img {
     margin-top: 20px;
-    /* Additional styling for the graph goes here */
+    width: 50%; /* Decrease the width of the image */
+    height: auto; /* Maintain the aspect ratio */
 }
