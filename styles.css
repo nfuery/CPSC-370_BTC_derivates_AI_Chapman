@@ -41,4 +41,6 @@ input[type="text"], input[type="range"] {
     margin-top: 20px;
     width: 50%; /* Decrease the width of the image */
     height: auto; /* Maintain the aspect ratio */
+    display: block;
+    margin: auto;
 }
