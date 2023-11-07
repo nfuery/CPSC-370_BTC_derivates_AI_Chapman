@@ -2,6 +2,7 @@ use rgbstd::interface::{rgb20, ContractBuilder};
 
 use std::convert::Infallible;
 use std::fs;
+use bp::NodeId;
 
 use amplify::hex::FromHex;
 use bp::{Chain, Outpoint, Tx, Txid};
@@ -73,5 +74,5 @@ fn main() {
 
     // Import the contract into the RGB system
     let contract_id = rgbstd::contract::ContractId::from(NodeId::from_hex(&bindle.to_string()).unwrap());
-    let contract = rgbstd::containers::Contract::from_str(&bindle.to_string()).unwrap();
+    let contract = rgbstd::containers::Bindle::from_str(&bindle.to_string()).unwrap().contract();
 }
