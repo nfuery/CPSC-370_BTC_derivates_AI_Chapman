@@ -72,6 +72,6 @@ fn main() {
         .expect("unable to save contract");
 
     // Import the contract into the RGB system
-    let contract_id = rgbstd::contract::ContractId::from_str(&bindle.to_string()).unwrap();
-    let contract = rgbstd::containers::Contract::from_id(&contract_id).unwrap();
+    let contract_id = rgbstd::contract::ContractId::from(NodeId::from_hex(&bindle.to_string()).unwrap());
+    let contract = rgbstd::containers::Contract::from_str(&bindle.to_string()).unwrap();
 }
