@@ -5,11 +5,13 @@ export const addPotentialMatch = async (newUser) => {
     const users = await prisma.profile.findMany();
     users.forEach(async (user) => {
         // Check hard constraints here
-        // If constraints are met, add newUser to user's potentialMatches
-        await prisma.profile.update({
-            where: { id: user.id },
-            data: { potentialMatches: { connect: { id: newUser.id } } },
-        });
+        if (user.genderPreference === newUser.gender) {
+            // If constraints are met, add newUser to user's potentialMatches
+            await prisma.profile.update({
+                where: { id: user.id },
+                data: { potentialMatches: { connect: { id: newUser.id } } },
+            });
+        }
     });
 };
 
