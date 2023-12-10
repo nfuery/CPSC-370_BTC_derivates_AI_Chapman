@@ -5,11 +5,14 @@ export const addPotentialMatch = async (newUser) => {
     const users = await prisma.profile.findMany();
     users.forEach(async (user) => {
         // Check hard constraints here
-        if (user.genderPreference === newUser.gender) {
-            // If constraints are met, add newUser to user's potentialMatches
-            await prisma.profile.update({
-                where: { id: user.id },
-                data: { potentialMatches: { connect: { id: newUser.id } } },
+        if (user.interestedIn === newUser.gender) {
+            // If constraints are met, create a Swipe record
+            await prisma.swipe.create({
+                data: {
+                    profileId: user.id,
+                    swipedProfileId: newUser.id,
+                    liked: false,
+                },
             });
         }
     });
@@ -17,18 +20,22 @@ export const addPotentialMatch = async (newUser) => {
 
 export const addAcceptedMatch = async (user1, user2) => {
     // Check if both users like each other
-    const user1LikesUser2 = user1.potentialMatches.includes(user2.id);
-    const user2LikesUser1 = user2.potentialMatches.includes(user1.id);
+    const user1LikesUser2 = await prisma.swipe.findUnique({
+        where: { profileId_swipedProfileId: { profileId: user1.id, swipedProfileId: user2.id } }
+    });
+    const user2LikesUser1 = await prisma.swipe.findUnique({
+        where: { profileId_swipedProfileId: { profileId: user2.id, swipedProfileId: user1.id } }
+    });
 
     if (user1LikesUser2 && user2LikesUser1) {
-        // If both users like each other, add them to each other's acceptedMatches
-        await prisma.profile.update({
-            where: { id: user1.id },
-            data: { acceptedMatches: { connect: { id: user2.id } } },
+        // If both users like each other, update the liked field in the Swipe records
+        await prisma.swipe.update({
+            where: { profileId_swipedProfileId: { profileId: user1.id, swipedProfileId: user2.id } },
+            data: { liked: true },
         });
-        await prisma.profile.update({
-            where: { id: user2.id },
-            data: { acceptedMatches: { connect: { id: user1.id } } },
+        await prisma.swipe.update({
+            where: { profileId_swipedProfileId: { profileId: user2.id, swipedProfileId: user1.id } },
+            data: { liked: true },
         });
     }
 };
